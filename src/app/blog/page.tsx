@@ -59,7 +59,7 @@ export default function Blog() {
   return (
     <section>
       {/* Banner */}
-      <div className="relative h-screen w-full overflow-hidden">
+      <div className="relative h-[572px] w-full overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src={banner_Blog}
