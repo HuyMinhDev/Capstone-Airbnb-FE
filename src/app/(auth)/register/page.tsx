@@ -76,7 +76,10 @@ export default function RegisterPage() {
 
     try {
       setLoading(true);
-      const res = await userApi.createUser(parsed.data);
+      const res = await userApi.createUser({
+        ...parsed.data,
+        role: "user",
+      });
       const message = res.message;
 
       if (res.statusCode === 200) {

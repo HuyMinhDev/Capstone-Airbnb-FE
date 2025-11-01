@@ -51,12 +51,16 @@ export default function ModalQLViTri({
   }
 
   const handleSubmit = async (values: CreateLocationPayload) => {
+    console.log("Check submit");
+
     try {
       setLoading(true);
       const file = values.hinhAnh?.[0]?.originFileObj as File | undefined;
 
       setFileImage(file ?? null);
-      if (!file || !fileImageNew) return;
+
+      if (!fileImageNew) return;
+
       const fileToUpload =
         typeof fileImageNew === "string"
           ? dataURLtoFile(fileImageNew, "image.jpg")
@@ -64,6 +68,7 @@ export default function ModalQLViTri({
       const uploadRes = await fileApi.upload(fileToUpload);
 
       // Gửi dữ liệu cơ bản trước
+      console.log("Check submit");
       const res = await locationApi.createLocation({
         location_name: values.location_name,
         province: values.province,
